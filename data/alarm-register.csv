@@ -1,0 +1,11 @@
+id,system,source_entity,condition,delay,priority,route,response,owner_repo,status
+A001,Leak,point leak sensors,wet,0 s,P1,critical,Isolate and investigate,layered-leak-detection,live
+A002,Heating plant,boiler pressure,< 1.0 bar,10 min,P2,push,Top up / investigate leak,heating-plant-monitoring-esphome,planned
+A003,Heating plant,tundish any wet,wet (2 consecutive),10 s,P1,critical,Check expansion vessel and inlet pressure,heating-plant-monitoring-esphome,planned
+A004,Water,steady low flow,> 0 for 10 min,10 min,P2,push,Check for leaks,mains-water-metering-modbus-rtu,live
+A005,Fire/CO,interface offline,unavailable,5 min,P1,critical,Check the interface,aico-ei413-shelly-ha,live
+A006,Supervisor,heartbeat,stale > 5 min,5 min,P3,digest,Check Node-RED,ha-node-red-supervisory-layer,planned
+A007,ESP fleet,board offline,unavailable,10 min,P3,digest,Check board/power,esphome-fleet-standards,planned
+A008,Head-end,RAMSES-II gateway,no messages 10 min,10 min,P2,push,Check the gateway,head-end-health-monitoring,planned
+A009,Head-end,backup,no success in 26 h,26 h,P3,digest,Check backups,head-end-health-monitoring,planned
+A010,Weather,Met Office warning / flood gauge,warning issued or gauge above threshold,0,P3,push,Prepare (frost/flood/wind actions),weather-alerts (planned),planned
